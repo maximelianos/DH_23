@@ -23,7 +23,7 @@ def scale_data(df):
 def get_user_ids(df):
     return df["Id"].unique()
 
-def get_data_for_user(user_id):
+def get_data_for_user(user_id, df):
     return df[df["Id"] == user_id]
 
 def drop_rows_with_missing_values(df):
