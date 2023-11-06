@@ -1,0 +1,21 @@
+1. Data Exploration
+- How do the trends and patterns in the 2022_04_22_hour_heartbeat_merged.csv dataset
+compare to those observed in the Hourly_merged.csv dataset?
+> The variance in the new dataset is more time-dependent.
+- We can see the night time when steps is 0 and heartbeat is\
+low. Two of the users have missing data periods.
+
+2. Data Preprocessing
+- After handling missing values, how does the distribution change?
+Are there significant shifts in mean or variance?
+> There is a negligable amount of missing values,
+so the distribution doesn't change.
+-How does the scaling of training and testing data separately impact
+the range and distribution of the scaled values?
+> Each feature is guaranteed to be normalized for train and test set,
+which means having range [0, 1] for MinMaxScaler and mean=0, std=1 for StandardScaler.
+- How might scaling the entire dataset (training + testing)
+introduce potential biases?
+> The mean and variance of training set and testing set
+may be different from each other, because the data is a time series.
+That means the scaling doesn't actually normalize the two sets.

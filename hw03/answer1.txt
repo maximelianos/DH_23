@@ -1,0 +1,39 @@
+1. Data Understanding
+- What kind of data are we dealing with?
+> Information about physical activity, aggregated by hours
+- What are the key features in the dataset?
+> Calories, total intensity, step total vary a lot by time.
+Distribution of values is skewed to small values.
+
+2. Summary Statistics
+- What insights can you gather from the summary statistics?
+> Comparing std deviation and mean, calories vary less than intensity or step count.
+There are very large values from all features which should be filtered.
+- Are there any features that have extremely high or low values?
+> Yes, all of them, calories and step especially.
+- How would you interpret the standard deviation for features like Calories aand StepTotal?
+> Calories has less deviation, because the brain uses a lot of energy even in calm state,
+so the peaks and valleys are not so sharp. Steps varies from 0 to 10000, depending on the day.
+
+3. Data visualization
+- What patterns or trends can you observe from the time series plots?
+> High variance and clusters of activity and rest.
+- Are there any noticeable outliers?
+> A period of no activity.
+- How would you interpret the variability in Calories, TotalIntensity, and StepTotal?
+> There are periods of activity and rest.
+
+4. Missing values
+- How would you handle missing values if there were any?
+> Replace by 0 or by mean.
+- Why is it important to deal with missing values before proceeding to model training?
+> The program will crash or (worse) will not work.
+
+5. Data Scaling (Normalization)
+- Why is data scaling important in time-series analysis, especially when using LSTMs?
+> Difference in mean and standard deviation between features will cause unstable 
+or slow learning because of skewed loss function landscape.
+- What are some other scaling methods you could use, and how do they differ from Min-Max Scaling?
+> One way is to remove small percentile (1%) of very small of very large values before
+scaling, so the distribution is more even. Second is standard scaling, which means -mean /std.
+It assures mean=0 and std=1. These properties allow to construct a simpler ML model.
